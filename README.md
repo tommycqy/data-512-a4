@@ -19,6 +19,11 @@ There are three initial data files downloaded in csv format:<br>
     - 'Name' - country or region name
     - 'Type' - includes three fields (world, sub_region or country) that represent the type of the name column
     - 'Population' - the population for the world, country or region
+- The population data is available in CSV format as 'WPDS_2020_data.csv'. (https://docs.google.com/spreadsheets/d/1CFJO2zna2No5KqNm9rPK5PCACoXKzb-nycJFhV689Iw/edit)
+  - Three columns in this data are used in this project
+    - 'Name' - country or region name
+    - 'Type' - includes three fields (world, sub_region or country) that represent the type of the name column
+    - 'Population' - the population for the world, country or region
 
 There are also two additional data files generated through this assignment:<br>
 - 'wp_wpds_countries-no_match.csv'
@@ -43,8 +48,9 @@ What are the axes, and what do they represent?
 - The X axis represents the date and the Y axis represent the number of daily new Covid-19 cases.
 What is the underlying data and how was it processed?
 - The initial data files were introduced above. The following are some processing steps.
-  - s
-
+  - I didn't use the 'mask-use-by-county' data in this particular assignment. So there weren't any processing steps for this one.
+  - For the mask mandate dataset, I combined the State FIPS and County FIPS to the standard 5-digit FIPS so that I would be able to subset and merge in the future. I also dropped some unnecessary columns. Finally, I changed the date column datatype to the standard pandas datetime.
+  - For the Raw US confirmed cases dataset, I firstly unpivot the columns into rows using the 'melt' function in pandas. Then I standardize the FIPS code to 5 digit and change the date column data type to datetime. Finally, I applied a 'date range mask' to filter out the data between 2020/02/01 to 2021/10/15 and calculated the daily new cases by taking the difference between number of cases.
 
 ### Analysis Results & Reflection <br>
 For this relection, I firstly want to talk about some of the practices I learnt on improving reproducibility. We had an in-class activity discussing the reproducibility of data science proejects, and our group was able to find many potential improvements. I attempted to install some of these improvements during this assignment. For example, I included the complete data files and their sources, keeped all the necessary comments along the way, and wrote an in-detail README file. I was surprised to find that this level of documentation actually helped me check my own work and made me work more efficient. One additional thing I noticed during this project is that the variable names should be appropiate. For instance, there are a lot of intermediate dataframes during the analysis (by_country and by_region). It's so easy to lose track of what you're working on or make mistakes if you don't name the variables carefully. <br>
