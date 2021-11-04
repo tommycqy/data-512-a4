@@ -37,6 +37,6 @@ What is the underlying data and how was it processed?
   - For the Raw US confirmed cases dataset, I firstly unpivot the columns into rows using the 'melt' function in pandas. Then I standardize the FIPS code to 5 digit and change the date column data type to datetime. Finally, I applied a 'date range mask' to filter out the data between 2020/02/01 to 2021/10/15 and calculated the daily new cases by taking the difference between number of cases.
 
 ### Analysis Results & Reflection <br>
-Based on this activity, I learnt a lot from the discussions on slack. <br>
-This suggests that when using English wikipedia as a data source, we need to recognize the exsiting bias and adjust for it. For instance, if we want to evaluate the politician coverage on wikipedia, we should include other language source as well and take the population factor into consideration.
+Based on this activity, I learnt a lot from the discussions on slack. First of all, I learnt some of the useful formulas on how to reflect the COVID-19 trend. It is notable that we should use the daily new cases instead of total cases to reflect the rate of change. I also learnt 'daily infection rate' as a useful metric. However I decided not to calculate it in this assignment because the formula still is unclear. I believe it should be something like 'infected people/people at risk'. The ambiguous thing here is 'people at risk'. Do we subtract the already infected from the total population? Is it possible for a person to be infected twice? How do we take the 'risk' factor into accountability? I wish we had more data and explanation. <br>
+In addition, my graph here is not very indicative of 'how mask mandate changed COVID situation' since Arizona state NEVER had a mask mandate!
 
